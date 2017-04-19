@@ -24,4 +24,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="cuj-2004-10.pdf">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Hazard Pointers.pdf">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

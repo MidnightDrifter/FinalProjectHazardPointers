@@ -18,7 +18,8 @@ static HPRecType * pHead_;
 public:
 // Can be used by the thread
 // that acquired it
- 	void * pHazard_;
+
+ 	void * pHazard_;
  	
 static HPRecType * Head() {
  
@@ -56,7 +57,8 @@ HPRecType * p = pHead_;
   return p;
   }
   // Releases a hazard pointer
-   	   	static void Release(HPRecType* p) {
+   	
+   	static void Release(HPRecType* p) {
   p->pHazard_ = 0;
   p->active_ = 0;
   }
@@ -72,8 +74,10 @@ HPRecType * p = pHead_;
   class  WRRMMap {
   Map<K, V> * pMap_;
   ...
-     private:
-   	   static void Retire(Map<K, V> * pOld)
+   
+  private:
+   	
+   static void Retire(Map<K, V> * pOld)
 	{
   // put it in the retired list
   rlist.push_back(pOld);
@@ -87,12 +91,14 @@ HPRecType * p = pHead_;
 
 
 
-   	void Scan(HPRecType * head) {
+
+   	void Scan(HPRecType * head) {
   // Stage 1: Scan hazard pointers list
   // collecting all non-null ptrs
   vector<void*> hp;
    	 (head) {
-   	void* p = head->pHazard_;
+
+   	void* p = head->pHazard_;
    if(p) {hp.push_back(p);}
   head = head->pNext_;
   }
@@ -120,7 +126,8 @@ HPRecType * p = pHead_;
   
 
 
-   	void Update( const  K&k, const V&v)
+
+   	void Update( const  K&k, const V&v)
   {
 	Map<K, V> * pNew = 0;
 	do {
